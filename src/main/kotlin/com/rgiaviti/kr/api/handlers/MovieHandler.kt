@@ -29,4 +29,8 @@ class MovieHandler(
 
         return this.movieService.createMovie(body)
     }
+
+    suspend fun getMovies(request: ServerRequest): ServerResponse {
+        return this.movieService.findAll()
+    }
 }

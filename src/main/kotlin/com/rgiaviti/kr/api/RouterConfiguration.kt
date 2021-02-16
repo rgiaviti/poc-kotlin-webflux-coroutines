@@ -13,6 +13,7 @@ class RouterConfiguration {
     fun moviesRoutes(movieHandler: MovieHandler) = coRouter {
         accept(APPLICATION_JSON).nest {
             POST("/movies", movieHandler::createMovie)
+            GET("/movies", movieHandler::getMovies)
         }
     }
 }
