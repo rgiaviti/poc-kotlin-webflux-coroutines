@@ -9,7 +9,10 @@ import org.springframework.stereotype.Repository
 interface MovieRepository : CoroutineCrudRepository<Movie, Int> {
 
     suspend fun findByYear(year: String): List<Movie>
+    suspend fun findByTitleAndYear(title: String, year: String): List<Movie>
 
     @Query("select * from movies m where upper(m.director) like '%upper(?0)%'")
     suspend fun findByDirector(director: String): List<Movie>
+
+
 }

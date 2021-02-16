@@ -14,6 +14,8 @@ class RouterConfiguration {
         accept(APPLICATION_JSON).nest {
             POST("/movies", movieHandler::createMovie)
             GET("/movies", movieHandler::getMovies)
+            GET("/movies/{id}", movieHandler::getMovieById)
+            GET("/movies/year/{year}", movieHandler::getMovieByYear)
         }
     }
 }

@@ -6,4 +6,6 @@ object MessageCode {
     const val MOVIE_FIELD_YEAR_REQUIRED = "400.002"
     const val MOVIE_FIELD_DIRECTOR_REQUIRED = "400.003"
     const val MOVIE_FIELD_METASCORE_REQUIRED = "400.004"
+
+    const val MOVIE_ALREADY_EXISTS = "422.001"
 }
