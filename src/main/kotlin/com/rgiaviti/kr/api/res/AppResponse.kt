@@ -1,5 +1,6 @@
 package com.rgiaviti.kr.api.res
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 
 enum class ResponseStatus {
@@ -14,8 +15,8 @@ data class AppResponse(
         @JsonProperty("messages")
         val messages: MutableList<MessageRes> = mutableListOf()
 ) {
-    fun isError(): Boolean = this.status == ResponseStatus.ERROR
-    fun isSuccess(): Boolean = this.status == ResponseStatus.SUCCESS
-    fun addMessage(message: MessageRes) = this.messages.add(message)
-    fun addMessage(code: String, message: String) = this.messages.add(MessageRes(code, message))
+    @JsonIgnore fun isError(): Boolean = this.status == ResponseStatus.ERROR
+    @JsonIgnore fun isSuccess(): Boolean = this.status == ResponseStatus.SUCCESS
+    @JsonIgnore fun addMessage(message: MessageRes) = this.messages.add(message)
+    @JsonIgnore fun addMessage(code: String, message: String) = this.messages.add(MessageRes(code, message))
 }

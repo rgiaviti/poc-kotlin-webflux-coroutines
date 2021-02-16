@@ -1,1 +1,12 @@
+spring:
+  r2dbc:
+    name: movies
+    url: r2dbcs:mysql://root:root@localhost:3306/movies
+    username: root
+    password: root
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: mappings

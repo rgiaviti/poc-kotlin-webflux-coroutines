@@ -1,17 +1,18 @@
 package com.rgiaviti.kr.api
 
 import com.rgiaviti.kr.api.handlers.MovieHandler
-import kotlinx.coroutines.FlowPreview
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.web.reactive.function.server.coRouter
 
 @Configuration
 class RouterConfiguration {
 
-    @FlowPreview
     @Bean
-    fun moviesRoutes(productsHandler: MovieHandler) = coRouter {
-        POST("/movies", productsHandler::createMovie)
+    fun moviesRoutes(movieHandler: MovieHandler) = coRouter {
+        accept(APPLICATION_JSON).nest {
+            POST("/movies", movieHandler::createMovie)
+        }
     }
 }

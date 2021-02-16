@@ -16,7 +16,7 @@ class PostMovieValidator(private val dictionary: Dictionary) : AbstractRequestVa
         return ValidationResult(messages)
     }
 
-    fun validateRequiredFields(movieReq: MovieReq): MutableList<MessageRes> {
+    private fun validateRequiredFields(movieReq: MovieReq): MutableList<MessageRes> {
         val messages = mutableListOf<MessageRes>()
 
         if (movieReq.title.isNullOrBlank()) {
